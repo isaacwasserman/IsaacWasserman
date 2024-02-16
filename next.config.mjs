@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        remotePatterns: ["cdn.sanity.io"],
+        // domains: ["cdn.sanity.io"],
+        remotePatterns: ["https://cdn.sanity.io/**"],
     },
     typescript: {
         // !! WARN !!
