@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/nyt-cheltenham-300-italic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/nyt-cheltenham-500-normal.woff2') format('woff2');
+}
+
+.page {
+    font-family: "Cheltenham";
+    display: flex;
+    flex-direction: row-reverse;
+    background: url("/images/pict20240201_180543_0.jpg");
+    background-size: cover;
+    background-position: 22% 44%;
+    width: 100vw;
+    height: 100vh;
+}
+
+.navigator {
+   margin: 20px 40px;
+   font-size: 4vh;
+   line-height: 5vh;
+}
+
+.name {
+    margin: 25px 0px;
+}
+
+.descriptors {
+    
+}
+
+.descriptors span {
+    display: block;
+}
+
+.page_link {
+    /* font-size: 2em; */
+    font-style: italic;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.page_link:hover {
+    opacity: 0.5;
+}
+
+.technologist_link {
+    text-decoration-color: #00ffce;
+}
+
+.creative_link {
+    text-decoration-color: #ff00f3;
+}
+
+.chef_link {
+    text-decoration-color: #00b1ff;
+}

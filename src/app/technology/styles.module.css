@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/nyt-cheltenham-300-italic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cheltenham';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/nyt-cheltenham-500-normal.woff2') format('woff2');
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5em;
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 255, 206);
+}
+
+.page {
+    font-family: "Cheltenham";
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gallery_item {
+    width: 300px;
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: 15px;
+}
+
+.gallery_item_image {
+    width: 100%;
+    height: 175px;
+    position: relative;
+}
+
+.gallery_item_text {
+    padding: 10px 15px;
+}
+
+.gallery_item_title {
+    font-size: 20px;
+}
+
+.gallery_item_description {
+    color: #666;
+}
+
+.noise_canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 0;
+}
