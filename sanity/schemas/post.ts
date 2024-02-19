@@ -40,6 +40,11 @@ export default defineType({
       type: 'image',
       options: {
         hotspot: true,
+        metadata: [
+          'blurhash',   // Default: included
+          'lqip',       // Default: included
+          'palette',    // Default: included
+        ]
       },
       fields: [
         {
@@ -59,6 +64,11 @@ export default defineType({
         type: 'image',
         options: {
           hotspot: true,
+          metadata: [
+            'blurhash',   // Default: included
+            'lqip',       // Default: included
+            'palette',    // Default: included
+          ]
         },
         fields: [{
           name: 'caption',

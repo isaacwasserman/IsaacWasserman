@@ -13,7 +13,10 @@ export default async function TechnologyPage() {
     title,
     subtitle,
     mainImage,
-    figures,
+    figures[] {
+      ...,
+      asset->
+    },
     body,
     publishedAt,
     slug

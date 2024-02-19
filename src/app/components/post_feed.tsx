@@ -1,10 +1,9 @@
-import Image from 'next/image';
-import imageUrlBuilder from '@sanity/image-url'
 import styles from "./post_feed.module.css";
 
 import { client, dataset, projectId } from '../../../sanity/lib/client';
 import { PortableText } from '@portabletext/react';
 import { getFile } from "@sanity/asset-utils";
+import { Image } from './Image';
 
 async function PostFeed({ posts }) {
     return (
@@ -26,19 +25,17 @@ async function PostFeed({ posts }) {
                                     {
                                         figure._type === "image" ? (
                                             <Image
-                                                src={imageUrlBuilder({ projectId, dataset }).image(figure).url()}
-                                                width={800}
-                                                height={200}
                                                 className={styles.figure_image}
+                                                image={figure}
+                                                width={800}
                                             />
                                         )
                                             :
                                             (<video
-                                                className={styles.project_image}
+                                                className={styles.figure_image}
                                                 src={getFile(figure.asset, client.config()).asset.url}
                                                 autoPlay={true}
                                                 muted={true}
-                                                className={styles.figure_image}
                                             />)
                                     }
                                     <p className={styles.figure_caption}>{figure.caption}</p>
