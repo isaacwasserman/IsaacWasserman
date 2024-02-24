@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Header } from "../../components/header";
+import { Image } from "../../components/Image";
 import styles from "./styles.module.css";
 
 // Import sanity client
@@ -24,7 +24,16 @@ export default async function TechnologyPostPage({
     title,
     subtitle,
     mainImage,
-    figures,
+    figures[] {
+      ...,
+      asset-> {
+        ...,
+        metadata {
+          ...,
+          blurHash
+        }
+      }
+    },
     body,
     publishedAt
   }`;
@@ -34,8 +43,8 @@ export default async function TechnologyPostPage({
     const figure = post.figures[i];
     const index = i;
     var has_transparency = false;
-    if (figure._type === "image" && figure.asset._ref.indexOf("-png") !== -1) {
-      const url = baseUrl + figure.asset._ref.replace("image-", "").replace("-png", ".png");
+    if (figure._type === "image" && figure.asset._id.indexOf("-png") !== -1) {
+      const url = baseUrl + figure.asset._id.replace("image-", "").replace("-png", ".png");
       // Get image buffer
       const response = await axios.get(url, { responseType: "arraybuffer" });
       // Convert to uint8array
@@ -51,7 +60,6 @@ export default async function TechnologyPostPage({
         }
       }
     }
-    
 
     images.push(
       <div className={styles.project_figure_container} key={index}>
@@ -63,13 +71,9 @@ export default async function TechnologyPostPage({
           }
         >
           {figure._type === "image" ? (
-            <SanityImage
+            <Image
+              image={figure}
               className={styles.project_image}
-              id={figure.asset._ref}
-              baseUrl={baseUrl}
-              mode={"cover"}
-              crop={figure.crop}
-              hotspot={figure.hotspot}
             />
           ) : null}
 
@@ -77,9 +81,9 @@ export default async function TechnologyPostPage({
             <video
               className={styles.project_image}
               src={getFile(figure.asset, client.config()).asset.url}
-              // controls
               autoPlay={true}
               muted={true}
+              playsInline={true}
             ></video>
           ) : null}
 
@@ -90,56 +94,6 @@ export default async function TechnologyPostPage({
       </div>,
     );
   }
-  // let images = post.figures.map(function (figure, index) {
-  //   var has_transparency = false;
-  //   if (figure._type === "image" && figure.asset._ref.indexOf("-png") > -1) {
-  //     console.log("Here 1");
-  //     const url = baseUrl + figure.asset._ref.replace("image-", "").replace("-png", ".png");
-  //     axios.get(url, { responseType: 'arraybuffer' }).then((response) => {
-  //       const image_buffer = Buffer.from(response.data);
-  //       const image = sharp(image_buffer);
-  //       const metadata = image.metadata().then((metadata) => {
-  //         if (metadata.hasAlpha) {
-  //           for (let i = 0; i < image_buffer.length; i += 4) {
-  //             if (image_buffer[i + 3] < 255) {
-  //               has_transparency = true;
-  //               break;
-  //             }
-  //           }
-  //         }
-  //       }).then(() => {
-  //         console.log("Returning");
-  //         return (
-  //           <div className={styles.project_figure_container} key={index}>
-  //             <figure className={styles.project_figure}>
-  //               {figure._type === "image" ?
-  //                 <SanityImage className={styles.project_image}
-  //                   id={figure.asset._ref}
-  //                   baseUrl={baseUrl}
-  //                   mode={"cover"}
-  //                   crop={figure.crop}
-  //                   hotspot={figure.hotspot}
-  //                 />
-  //                 : null}
-
-  //               {figure._type === "video" ?
-  //                 <video className={styles.project_image}
-  //                   src={getFile(figure.asset, client.config()).asset.url}
-  //                   // controls
-  //                   autoPlay={true}
-  //                   muted={true}
-  //                 ></video>
-  //                 : null}
-
-  //               <figcaption className={styles.project_figure_caption}>{figure.caption}</figcaption>
-  //             </figure>
-  //           </div>
-  //         )
-  //       });
-  //     });
-  //   }
-
-  // });
 
   return (
     <main className={".page"}>

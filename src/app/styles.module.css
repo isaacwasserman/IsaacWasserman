@@ -18,21 +18,55 @@
     font-family: "Cheltenham";
     display: flex;
     flex-direction: row-reverse;
-    background: url("/images/pict20240201_180543_0.jpg");
     background-size: cover;
     background-position: 22% 44%;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
+}
+
+.background_image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    object-position: 50% 100%;
+}
+
+@media (min-aspect-ratio: 2/1) {
+    .background_image {
+        object-position: 50% 50%;
+    }
+}
+
+@media (max-aspect-ratio: 1) {
+    .background_image {
+        object-position: 32% 50%;
+    }
 }
 
 .navigator {
-   margin: 20px 40px;
-   font-size: 4vh;
-   line-height: 5vh;
+    margin: 20px 40px;
+    font-size: 4vh;
+    line-height: 5vh;
+ }
+
+@media (max-aspect-ratio: 3/4) {
+    .background_image {
+        object-position: 31% 0%;
+        height: 150%;
+    }
+
+    .navigator {
+        margin: 20px auto;
+    }
 }
 
+
+
 .name {
-    margin: 25px 0px;
+    margin: 0.5em 0px;
 }
 
 .descriptors {
@@ -64,4 +98,21 @@
 
 .chef_link {
     text-decoration-color: #00b1ff;
+}
+
+.external_link_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.external_link {
+    height: 0.5em;
+    width: 0.5em;
+    display: block;
+    margin-top: 0.25em;
+    margin-right: 0.25em;
+}
+
+.external_link:hover {
+    opacity: 0.5;
 }

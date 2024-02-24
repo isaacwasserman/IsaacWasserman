@@ -1,4 +1,5 @@
-import Link from 'next/link'
+// import Link from "next/link";
+import { Link } from 'nextjs13-progress';
 import styles from "./header.module.css";
 
 function Header() {
