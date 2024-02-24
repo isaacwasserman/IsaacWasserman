@@ -26,18 +26,21 @@ function Image({ image, width, height, className, mode, ...props }) {
     const blurDataURL = blurHashToDataURL(blurHash);
 
     return (
-        <SanityImage
-            id={image.asset._id}
-            className={image.asset._id + " " + className}
-            baseUrl={`https://cdn.sanity.io/images/${projectId}/${dataset}/`}
-            width={width}
-            height={height}
-            mode={mode}
-            crop={image.crop}
-            hotspot={image.hotspot}
-            preview={blurDataURL}
-            queryParams={queryParams}
-        />
+        <>
+            <SanityImage
+                id={image.asset._id}
+                className={image.asset._id + " " + className}
+                baseUrl={`https://cdn.sanity.io/images/${projectId}/${dataset}/`}
+                width={width}
+                height={height}
+                mode={mode}
+                crop={image.crop}
+                hotspot={image.hotspot}
+                preview={blurDataURL}
+                queryParams={queryParams}
+            />
+            <script src={"/filter_src_set.js"}></script>
+        </>
     );
 }
 
