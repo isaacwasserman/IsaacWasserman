@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {children}
-        <Next13NProgress color="#1daeff" height={3} />
+        <Next13NProgress color="#1daeff" height={3} options={{showSpinner: false}} />
       </body>
     </html>
   );
