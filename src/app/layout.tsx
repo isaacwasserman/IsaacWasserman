@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from "@vercel/analytics/react"
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <Next13NProgress color="#1daeff" height={3} options={{showSpinner: false}} />
       </body>
       <GoogleAnalytics gaId="G-5QKHFSH3PP" />
+      <Analytics />
     </html>
   );
 }
