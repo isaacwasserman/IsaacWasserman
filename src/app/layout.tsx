@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { MyAnalytics } from "./components/my_analytics";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -25,9 +26,10 @@ export default function RootLayout({
         {children}
         <Next13NProgress color="#1daeff" height={3} options={{showSpinner: false}} />
       </body>
-      <GoogleAnalytics gaId="G-5QKHFSH3PP" />
+      {/* <GoogleAnalytics gaId="G-5QKHFSH3PP" />
       <Analytics />
-      <SpeedInsights />
+      <SpeedInsights /> */}
+      <MyAnalytics />
     </html>
   );
 }
