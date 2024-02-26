@@ -7,10 +7,9 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'visitor',
-      title: 'Visitor',
-      type: 'reference',
-      to: [{type: 'visitor'}],
+      name: 'visitor_ip',
+      title: 'Visitor IP',
+      type: 'string'
     }),
     defineField({
       name: 'route',

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { MyAnalytics } from "./components/my_analytics";
@@ -29,7 +29,8 @@ export default function RootLayout({
       {/* <GoogleAnalytics gaId="G-5QKHFSH3PP" />
       <Analytics />
       <SpeedInsights /> */}
-      <MyAnalytics />
+      {/* <MyAnalytics /> */}
+      <GoogleTagManager gtmId="GTM-T74GQ6SP" />
     </html>
   );
 }
