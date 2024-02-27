@@ -1,5 +1,6 @@
 import { Header } from "../components/header";
 import styles from "./styles.module.css";
+import { MyAnalytics } from "../components/my_analytics";
 
 // Import sanity client
 import { client, dataset, projectId } from '../../../sanity/lib/client';
@@ -29,6 +30,7 @@ export default async function TechnologyPage() {
       <Header />
       <h1 className={styles.title}>Cooking Journal:</h1>
       <PostFeed posts={posts} />
+      <MyAnalytics route={"/cooking"}/>
     </main>
   );
 }

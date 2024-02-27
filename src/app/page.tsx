@@ -2,6 +2,7 @@
 import { Link } from 'nextjs13-progress';
 import styles from "./styles.module.css";
 import { Image } from "./components/Image";
+import { MyAnalytics } from "./components/my_analytics";
 
 import { client, dataset, projectId } from '../../sanity/lib/client';
 import { groq } from 'next-sanity';
@@ -64,6 +65,7 @@ export default async function Home() {
           </Link>
         </div>
       </div>
+      <MyAnalytics route={"/"}/>
     </main>
   );
 }

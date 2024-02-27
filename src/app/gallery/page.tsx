@@ -6,6 +6,7 @@ import { client, dataset, projectId } from '../../../sanity/lib/client';
 import { groq } from 'next-sanity';
 
 import { PostFeed } from "../components/post_feed";
+import { MyAnalytics } from "../components/my_analytics";
 
 export default async function TechnologyPage() {
   // Fetch posts with category "technology"
@@ -29,6 +30,7 @@ export default async function TechnologyPage() {
       <Header />
       <h1 className={styles.title}>Things I've Made:</h1>
       <PostFeed posts={posts} />
+      <MyAnalytics route={"/gallery"}/>
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import { Header } from "../../components/header";
 import { Image } from "../../components/Image";
 import styles from "./styles.module.css";
+import { MyAnalytics } from "../../components/my_analytics";
 
 // Import sanity client
 import { client, dataset, projectId } from "../../../../sanity/lib/client";
@@ -111,6 +112,7 @@ export default async function TechnologyPostPage({
         </div>
         <div className={styles.photo_column}>{images}</div>
       </div>
+      <MyAnalytics route={`/technology/${params.slug}`}/>
     </main>
   );
 }

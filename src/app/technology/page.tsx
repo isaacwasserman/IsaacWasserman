@@ -5,6 +5,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import { Header } from "../components/header";
 import { NoiseRenderer } from "../components/noise_renderer";
 import styles from "./styles.module.css";
+import { MyAnalytics } from '../components/my_analytics';
 
 // Import sanity client
 import { client, dataset, projectId } from '../../../sanity/lib/client';
@@ -49,6 +50,7 @@ export default async function TechnologyPage() {
         </Link>
       ))}
       </div>
+      <MyAnalytics route={"/technology"}/>
     </main>
   );
 }
