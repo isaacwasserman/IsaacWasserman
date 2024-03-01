@@ -7,16 +7,16 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 
 async function MyAnalytics(props: { route: string }) {
     const header = headers();
-    const ip_address = header.get('x-forwarded-for') || "121.0.0.1";
+    const ip_address = header.get('x-forwarded-for') || "127.0.0.1";
     const route = props.route;
     const user_agent = header.get('user-agent');
     const is_bot = isbot(user_agent);
-    console.log(ip_address, route, user_agent, is_bot);
+    const referrer = header.get('referer');
 
     const { data, error } = await supabase
         .from('visits')
         .insert([
-            { ip_address: ip_address, route: route, user_agent: user_agent, is_bot: is_bot }
+            { ip_address: ip_address, route: route, user_agent: user_agent, is_bot: is_bot, referrer: referrer }
         ])
 
     if (error) {
