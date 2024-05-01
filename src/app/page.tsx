@@ -9,12 +9,14 @@ import { groq } from "next-sanity";
 
 export default async function Home() {
     const query = groq`*[_type == "author"] {
-    image {
-      ...,
-      asset->
-    }
-  }`;
+        ...,
+        image {
+            ...,
+            asset->
+        },
+    }`;
     let bio = (await client.fetch(query))[0];
+    // console.log(bio);
     return (
         <main className={styles.page}>
             <Image
@@ -63,6 +65,15 @@ export default async function Home() {
                     </span>
                 </p>
                 <div className={styles.external_link_container}>
+                    <Link
+                        className={styles.external_link}
+                        href="https://scholar.google.com/citations?user=eLh9ejcAAAAJ"
+                    >
+                        <img
+                            className={styles.external_link_image}
+                            src="/images/resume_icon.svg"
+                        />
+                    </Link>
                     <Link
                         className={styles.external_link}
                         href="https://www.linkedin.com/in/isaacrwasserman/"
