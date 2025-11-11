@@ -1,9 +1,6 @@
 // import Link from "next/link";
 import { Link } from "nextjs13-progress";
-import Image from "next/image";
-import imageUrlBuilder from "@sanity/image-url";
 import { Header } from "../components/header";
-import { NoiseRenderer } from "../components/noise_renderer";
 import styles from "./styles.module.css";
 import { MyAnalytics } from "../components/my_analytics";
 
